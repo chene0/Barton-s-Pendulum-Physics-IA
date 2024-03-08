@@ -1,5 +1,6 @@
 \documentclass[letterpaper, 12pt]{article}
 \usepackage[margin=0.45in]{geometry}
+% \usepackage[moderate]{savetrees}
 \usepackage{multicol}
 \usepackage{paracol}
 \usepackage{graphicx}
@@ -29,8 +30,6 @@ Barton's Pendulum}
 
 \maketitle
 \begin{center}
-    Candidate Code:
-    \\
     Session: May 2024
     \\
     Page Count:
@@ -171,53 +170,56 @@ of \(s\).
     F_g = -mg\sin\theta
 \end{equation}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.2\textwidth]{forcesOnPendulum.png}
-    \caption{A pendulum with relevant forces labelled}
-    \label{fig:f_netPendulum}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.2\textwidth]{forcesOnPendulum.png}
+%     \caption{A pendulum with relevant forces labelled}
+%     \label{fig:f_netPendulum}
+% \end{figure}
 
-With reference to Figure \ref*{fig:f_netPendulum}, Equation \ref*{eq:noApproximate}
+With reference to Figure \ref*{fig:labelledPendulum}, Equation \ref*{eq:noApproximate}
 can be derived as follows.
 
 \begingroup
 \allowdisplaybreaks
-\begin{align*}
-    F_{net}                                                                & = ma
-    \\
-    F_g + F_f + F_e                                                        & = ma
-    \\
-    -mg\sin\theta - \gamma l\dot\theta + A_e \cos (\Omega t)               & = m\ddot s \tag{A} \label{eq:simpleNewton}
-    \\
-    \\
-    m\ddot s                                                               & = -mg \sin\theta
-    \\
-    l\ddot \theta                                                          & = -g\sin\theta \tag{B} \label{eq:gsin}
-    \\
-    \ddot\theta                                                            & = -\frac{g}{l}\sin\theta
-    \\
-    \because \omega                                                        & = \sqrt{\frac{g}{l}}
-    \\
-    \ddot\theta                                                            & = -\omega^2\sin\theta \tag{C} \label{eq:angAccel_Vel}
-    \\
-    \\
-    \text{Substituting \ref*{eq:gsin} into \ref*{eq:simpleNewton}}         &
-    \\
-    ml\ddot\theta - \gamma l\dot\theta + A_e \cos (\Omega t)               & = m\ddot s \tag{D} \label{gsinSubstituted}
-    \\
-    \text{Substituting \ref*{eq:angAccel_Vel} into \ref*{gsinSubstituted}} &
-    \\
-    -ml\omega^2\sin\theta - \gamma l\dot\theta + A_e \cos (\Omega t)       & = m\ddot s
-    \\
-    \because \ddot s                                                       & = l\ddot \theta
-    \\
-    A_e\cos(\Omega t)                                                      & = ml\ddot \theta + \gamma l\dot\theta + ml\omega^2\sin\theta
-    \\
-    \text{Letting } C                                                      & = \frac{A_e}{ml}
-    \\
-    \lambda                                                                & = \frac{\gamma}{m}
-\end{align*}
+\begin{paracol}{2}
+    \begin{align*}
+         & F_{net}                                                   = ma
+        \\
+         & F_g + F_f + F_e                                           = ma
+        \\
+         & -mg\sin\theta - \gamma l\dot\theta + A_e \cos (\Omega t)  = m\ddot s \tag{A} \label{eq:simpleNewton}
+        \\
+        \\
+         & m\ddot s                                                  = -mg \sin\theta
+        \\
+         & l\ddot \theta                                             = -g\sin\theta \tag{B} \label{eq:gsin}
+        \\
+         & \ddot\theta                                               = -\frac{g}{l}\sin\theta
+        \\
+         & \because \omega                                          = \sqrt{\frac{g}{l}}
+        \\
+         & \ddot\theta                                               = -\omega^2\sin\theta \tag{C} \label{eq:angAccel_Vel}
+    \end{align*}
+    \switchcolumn
+    \begin{align*}
+         & \text{Substituting \ref*{eq:gsin} into \ref*{eq:simpleNewton}}
+        \\
+         & ml\ddot\theta - \gamma l\dot\theta + A_e \cos (\Omega t)                = m\ddot s \tag{D} \label{gsinSubstituted}
+        \\
+         & \text{Substituting \ref*{eq:angAccel_Vel} into \ref*{gsinSubstituted}}
+        \\
+         & -ml\omega^2\sin\theta - \gamma l\dot\theta + A_e \cos (\Omega t)        = m\ddot s
+        \\
+         & \because \ddot s                                                        = l\ddot \theta
+        \\
+         & A_e\cos(\Omega t)                                                       = ml\ddot \theta + \gamma l\dot\theta + ml\omega^2\sin\theta
+        \\
+         & \text{Letting } C                                                       = \frac{A_e}{ml}
+        \\
+         & \lambda                                                                 = \frac{\gamma}{m}
+    \end{align*}
+\end{paracol}
 \endgroup
 \begin{equation} \label{eq:noApproximate}
     \ddot\theta + \lambda\dot\theta + \omega^2\sin\theta = C\cos(\Omega t)
@@ -336,21 +338,25 @@ at the resonant angular frequency.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{hypothesis.png}
+    \includegraphics[width=0.4\textwidth]{hypothesis.png}
     \caption{Amplitude of forced pendulum as a function of angular frequency of the driver pendulum graph using Desmos to present a hypothesis of the function's curve shape}
     \label{fig:hypothesis}
 \end{figure}
 
 \section{Materials}
 
-\begin{multicols}{2}
+\begin{paracol}{2}
     \begin{itemize}
         \item (3) Retort Stands
         \item (2) C-clamps
         \item (4) Clamps
-        \item (2) Rulers
+        \item \(\SI{11}{cm} \pm \SI{0.5}{cm}\) ruler
+        \item \(\SI{15}{cm} \pm \SI{0.5}{cm}\) ruler
         \item (2) Meter Sticks
         \item (1) \SI{200}{g} weight
+    \end{itemize}
+    \switchcolumn
+    \begin{itemize}
         \item (1) \SI{50}{g} weight
         \item Tape
         \item String
@@ -359,7 +365,7 @@ at the resonant angular frequency.
         \item Highlighter
         \item Phone Camera
     \end{itemize}
-\end{multicols}
+\end{paracol}
 
 \section{Variables}
 
@@ -418,6 +424,17 @@ masses for the forced pendulum between trials.
 This variable must be controlled to
 ensure that the parameters of \(C = \frac{A_e}{ml}\)
 and \(\lambda = \frac{\gamma}{m}\) remain consistent.
+
+\section{Safety, Ethical, and Environmental Considerations}
+
+There were no ethical or environmental issues in
+this lab. A safety consideration is to avoid
+excessive tightening of the C-clamp such that
+the retort stand's base buckles. Another
+safety consideration is to carry long objects
+(e.g. meter sticks, retort stands) such that
+they will not impact delicate objects
+or others in the lab.
 
 \section{Experimental Protocol}
 
@@ -512,7 +529,8 @@ to continue.
 \subsection{Qualitative Observations}
 
 \begin{itemize}
-    \item As the angular frequency of the pendulum approached the resonant angular frequency of the forced pendulum, the driver pendulum experiences progressively more complete energy transfers. This was observed as temporary absence of potential and kinetic energy in the driver pendulum when the forced pendulum experiences oscillations of maximum amplitude.
+    \item As the angular frequency of the driver pendulum approached the resonant angular frequency of the forced pendulum, the driver pendulum experiences progressively more complete energy transfers. This was observed as temporary absence of potential and kinetic energy in the driver pendulum when the forced pendulum experiences oscillations of maximum amplitude.
+    \item As the angular frequency of the driver pendulum approached the resonant angular frequency of the forced pendulum, the period that the forced pendulum transitions from no energy to maximum energy back to no energy increased.
     \item Despite the method of controlling the tension of the master string by avoiding exchange between different master strings, the string was observed to lose tension overtime.
     \item When the length of the driver pendulum was \SI{0.156}{m}, the master string failed and collapsed.
 \end{itemize}
@@ -819,6 +837,78 @@ determined as shown below.
 \end{align*}
 
 \section{Evaluation}
+
+The experimental and theoretical values of the
+angular frequency of the forced pendulum at a glance
+look very close; however, the ranges defined by their
+uncertainties barely intersect (\SI{6.2}{rad.s^{-1}} and \SI{6.19}{rad.s^{-1}}). This indicates that
+the data collected in the experiment isn't the most accurate.
+This was already evident in Figure \ref*{fig:defaultGraph} where
+the final 5 data points break the quadratic trend.
+While one may argue that the holistic trend
+could be cubic, the theory only backs up the argument
+that the relationship between \(\frac{1}{A^2}\) and \(\Omega^2\)
+is quadratic. Despite this, further investigation
+is required to confirm the portion of the hypothesis
+predicting that this relationship is quadratic.
+
+\subsection{Strengths}
+
+Most experiments investigating an external periodic
+force applied to a simple harmonic motion system
+are done by using a motor to provide the external
+periodic force. However, this experiment does
+not necessitate the need to design a motor, as
+the external periodic force is provided by
+the driver pendulum that can be easily
+made by anyone.
+
+\subsection{Sources of Error}
+
+The first source of error was the progressive decrease
+in master string's tension overtime. Because of the
+exaggerated amplitude of the forced pendulum
+due to the additional master string's oscillation,
+then it is expected that data points surrounding
+the median of the angular frequencies of the driver
+pendulum will have an amplitude that is higher
+than reality. This in turn causes the
+data points in the center of Figure \ref*{fig:restrictedGraph}
+to be lower than reality. Assuming that the first
+data point in Figure \ref*{fig:restrictedGraph}
+remains static, then if all the other data points
+were adjusted to be increased, than the y-intercept
+would be expected to decrease. This in turn would
+cause the experimental value of \(\omega\) to decrease
+and therefore increase the likelihood that
+the experimental value matches the theoretical value.
+The first improvement is to layer the master string
+with multiple strands such that the master string
+is less prone to losing its tension. Another
+improvement is to use a different material
+for the master string such as fishing line
+that is less prone to stretch overtime.
+
+The second source of error was the master string's failure
+when the length of the driver pendulum was \SI{0.156}{m}.
+This explains the break in the trend in Figure \ref*{fig:defaultGraph},
+as this was the 5th last data point that started the
+break in the trend. The break in the trend was specifically
+the way in which the 5 last data points fell under
+the expected curve given by the best-fit parabola
+of the rest of the data points, and this makes
+sense given this source of error as because a loosened
+string that was reattached to the retort stands
+would allow for more energy transfer between the
+pendulums and exaggerated oscillations due to the
+master's string's additional oscillation, then
+\(A\) would become larger than expected,
+which in turn causes \(\frac{1}{A^2}\)
+to be lower than expected. An improvement
+to solve this source of error is to layer
+the master string with multiple strands such
+that the master string has increased durability
+to avoid failure.
 
 
 %TODO: extension of effect of changing position of pendulums along master string.
