@@ -13,9 +13,13 @@
 \usepackage{indentfirst}
 \usepackage{siunitx}
 \usepackage[justification=centering]{caption}
+\usepackage{wrapfig}
+\usepackage{changepage}
 \usepackage{float}
 \usepackage{url}
 \usepackage{tabularray}
+
+\globalcounter{figure}
 
 \pagenumbering{roman}
 
@@ -50,9 +54,26 @@ angular frequency of the driver pendulum /\unit{rad.s^{-1}} in a Barton's pendul
 
 \section{Introduction}
 
-Pendulums undergo a repeating cycle of energy transfer from
-only potential energy to only kinetic energy back to
-only potential energy. This process causes
+\begin{wrapfigure}{r}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.3\textwidth]{labelledPendulum.png}
+    \caption{Pendulum labelled with components of gravitational force \protect\cite{krishnavedalaEnglishDiagramDepicting2013}.}
+    \label{fig:labelledPendulum}
+\end{wrapfigure}
+
+Pendulums undergo a continuous transfer
+between potential and kinetic energy depending
+on the position of the pendulum. As a child, I
+observed this through my myriad number of hours
+spent on playground swings, where I realized
+that achieving a greater height necessitated
+gaining more speed at the bottom. More formally,
+when I am at a crest in the swing's oscillation,
+I could reorient my center of mass such that
+I gain a small increase in my
+potential energy.
+
+This continuous transfer causes
 a pendulum system to undergo simple harmonic motion,
 therefore pendulums have properties such as
 period and frequency of oscillation defined
@@ -107,12 +128,14 @@ Note that the negative sign is necessary, as the direction
 of translational velocity of the pendulum
 opposes the direction of frictional force.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.3\textwidth]{labelledPendulum.png}
-    \caption{Pendulum labelled with components of gravitational force \protect\cite{krishnavedalaEnglishDiagramDepicting2013}.}
-    \label{fig:labelledPendulum}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.3\textwidth]{labelledPendulum.png}
+%     \caption{Pendulum labelled with components of gravitational force \protect\cite{krishnavedalaEnglishDiagramDepicting2013}.}
+%     \label{fig:labelledPendulum}
+% \end{figure}
+
+
 
 With reference to Figure \ref*{fig:labelledPendulum}, the
 displacement along the green arc (\(s\)) can be defined
@@ -269,7 +292,7 @@ can be then determined.
 
 Equation \ref*{eq:unlinearized} assumes that:
 \begin{itemize}
-    \item Due to the small angle approximation made, \(\theta\) does not exceed \(13.99^{\circ}\)
+    \item Due to the small angle approximation made, \(\theta\) does not exceed \(13.99^{\circ}\) \cite{SmallangleApproximation2023}
     \item The string connected to the weight is massless
 \end{itemize}
 
@@ -338,7 +361,7 @@ at the resonant angular frequency.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\textwidth]{hypothesis.png}
+    \includegraphics[width=0.3\textwidth]{hypothesis.png}
     \caption{Amplitude of forced pendulum as a function of angular frequency of the driver pendulum graph using Desmos to present a hypothesis of the function's curve shape}
     \label{fig:hypothesis}
 \end{figure}
@@ -425,6 +448,13 @@ This variable must be controlled to
 ensure that the parameters of \(C = \frac{A_e}{ml}\)
 and \(\lambda = \frac{\gamma}{m}\) remain consistent.
 
+The fifth controlled variable is the distance
+between the driver and forced pendulums. Because
+lower tension will be found at the center of the
+master string, then a change in distance between the
+two pendulums will result in reduced/magnified
+energy transfer between the pendulums.
+
 \section{Safety, Ethical, and Environmental Considerations}
 
 There were no ethical or environmental issues in
@@ -437,6 +467,13 @@ they will not impact delicate objects
 or others in the lab.
 
 \section{Experimental Protocol}
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.5\textwidth]{entireSetup.jpg}
+    \caption{Lab experiment apparatus setup}
+    \label{fig:entireSetup}
+\end{wrapfigure}
 
 A string was cut using scissors to a length
 that is slightly longer than a meter stick.
@@ -478,7 +515,7 @@ of the primary retort stands, the forced pendulum
 and the third retort stand were aligned in the
 same plane, and a picture was taken using the phone.
 The motivation of this was to analyse
-that image using PASCO to determine
+that image using PASCO Capstone to determine
 a more accurate length that
 considers the centre of mass of the weight.
 
@@ -515,12 +552,12 @@ there is too much excess string, then
 some string was cut off to allow this process
 to continue.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{entireSetup.jpg}
-    \caption{Lab experiment apparatus setup}
-    \label{fig:entireSetup}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{entireSetup.jpg}
+%     \caption{Lab experiment apparatus setup}
+%     \label{fig:entireSetup}
+% \end{figure}
 
 %TODO: data processing process
 
@@ -537,18 +574,51 @@ to continue.
 
 \subsection{Quantitative Data}
 
-Table \ref*{tab:rawData} presents the raw data collected from the
-experiment that are necessary to determine the angular frequency
+Table \ref*{tab:rawData} presents the raw data from a selection of
+trials, where the values are necessary to determine the angular frequency
 of the driver pendulum and the maximum amplitude of the forced
 pendulum for each trial.
 
+% \begin{table}[H]
+%     \centering
+%     \caption{First half the lengths for the driver pendulum of each trial}
+%     \label{tab:firstLengths}
+%     \begin{tblr}{
+%         width = \linewidth,
+%         colspec = {Q[200]Q[108]Q[108]Q[108]Q[108]Q[108]Q[108]Q[108]Q[108]},
+%         cells = {c},
+%         hlines,
+%         vlines,
+%         }
+%         Trial Number              & 1                 & 2                 & 3                 & 4                 & 5                 & 6                 & 7                 & 8                 \\
+%         Driver pendulum length /m & $0.374 \pm 0.007$ & $0.353 \pm 0.006$ & $0.320 \pm 0.006$ & $0.297 \pm 0.005$ & $0.269 \pm 0.005$ & $0.250 \pm 0.005$ & $0.240 \pm 0.004$ & $0.229 \pm 0.004$
+%     \end{tblr}
+% \end{table}
+
+% \begin{table}[H]
+%     \centering
+%     \caption{Second half the lengths for the driver pendulum of each trial}
+%     \label{tab:secondLengths}
+%     \begin{tblr}{
+%         width = \linewidth,
+%         colspec = {Q[200]Q[119]Q[119]Q[119]Q[119]Q[119]Q[119]Q[119]},
+%         cells = {c},
+%         hlines,
+%         vlines,
+%         }
+%         Trial Number              & 9                 & 10                & 11                & 12                & 13                & 14                & 15                \\
+%         Driver pendulum length /m & $0.203 \pm 0.004$ & $0.168 \pm 0.003$ & $0.156 \pm 0.003$ & $0.153 \pm 0.003$ & $0.130 \pm 0.002$ & $0.212 \pm 0.004$ & $0.115 \pm 0.002$
+%     \end{tblr}
+% \end{table}
+
 \begin{table}[H]
+    \fontsize{9pt}{9pt}\selectfont
     \centering
     \caption{Average, maximum, and minimum horizontal oscillation position and maximum and minimum vertical oscillation position as functions of the length of driver pendulum}
     \label{tab:rawData}
     \begin{tblr}{
         width = \linewidth,
-        colspec = {Q[202]Q[165]Q[144]Q[144]Q[144]Q[138]},
+        colspec = {Q[144]Q[150]Q[144]Q[144]Q[144]Q[138]},
         cells = {c},
         hlines,
         vlines,
@@ -609,6 +679,13 @@ length of the driver pendulum of the first trial.
 
 \section{Processed Data}
 
+\begin{wrapfigure}{r}{0.2\textwidth}
+    \centering
+    \includegraphics[width=0.2\textwidth]{determineAmplitude.png}
+    \caption{Forced pendulum at its maximum amplitude labelled with relevant variables to determine the value of the maximum amplitude}
+    \label{fig:determineAmplitude}
+\end{wrapfigure}
+
 The lengths of the driver pendulums will be used to determine
 the angular frequency of the driver pendulum for each trial.
 A sample calculation is shown below for the length of the
@@ -623,14 +700,16 @@ driver pendulum of the first trial.
                & = \SI{5.12}{rad.s^{-1}} \pm \SI{0.05}{rad.s^{-1}}
     \end{align*}
     \switchcolumn
-    From \cite{gonzalesMeasurementUncertaintySquares2022}
-    \begin{align*}
-        \Delta \Omega & = \Omega \left( \frac{1}{2} \cdot \frac{\Delta l_e}{l_e} \right)
-        \\
-                      & = (\SI{5.12}{rad.s^{-1}})\left( \frac{1}{2} \cdot \frac{\SI{0.007}{m}}{\SI{0.374}{m}} \right)
-        \\
-                      & = \SI{0.05}{rad.s^{-1}}
-    \end{align*}
+    \begin{adjustwidth}{-1.5cm}{0cm}
+        From \cite{gonzalesMeasurementUncertaintySquares2022}
+        \begin{align*}
+            \Delta \Omega & = \Omega \left( \frac{1}{2} \cdot \frac{\Delta l_e}{l_e} \right)
+            \\
+                          & = (\SI{5.12}{rad.s^{-1}})\left( \frac{1}{2} \cdot \frac{\SI{0.007}{m}}{\SI{0.374}{m}} \right)
+            \\
+                          & = \SI{0.05}{rad.s^{-1}}
+        \end{align*}
+    \end{adjustwidth}
 \end{paracol}
 
 Next, based on the maximum, minimum, and average
@@ -646,12 +725,12 @@ For the vertical axis, its
 maximum distance from equilibrium is
 \(|Y_{max} - Y_{min}|\).
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.4\textwidth]{determineAmplitude.png}
-    \caption{Forced pendulum at its maximum amplitude labelled with relevant variables to determine the value of the maximum amplitude}
-    \label{fig:determineAmplitude}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.4\textwidth]{determineAmplitude.png}
+%     \caption{Forced pendulum at its maximum amplitude labelled with relevant variables to determine the value of the maximum amplitude}
+%     \label{fig:determineAmplitude}
+% \end{figure}
 
 The amplitude of the forced pendulum /\unit{rad} can be determined
 by taking the maximum horizontal oscillation amplitude
@@ -661,6 +740,8 @@ that the forced pendulum has rotated about its
 pivot. The calculation for this for the first
 trial is shown below with reference to Figure \ref*{fig:determineAmplitude}.
 
+\begingroup
+\allowdisplaybreaks
 \begin{align*}
     \text{Let } l & = \text{the length of the forced pendulum }
     \\
@@ -676,6 +757,7 @@ trial is shown below with reference to Figure \ref*{fig:determineAmplitude}.
     \\
     A             & = \SI{0.168}{rad} \pm \SI{0.006}{rad}
 \end{align*}
+\endgroup
 
 \begin{align}
     \text{From}                     & \text{ \cite{UncertaintiesErrorPropagation}} \nonumber
@@ -693,7 +775,30 @@ relationship between the forced pendulum's maximum
 amplitude and the angular frequency of the driver
 pendulum.
 
+% \begin{table}[H]
+%     \centering
+%     \caption{Maximum horizontal and vertical displacement from equilibrium of forced pendulum and maximum amplitude of forced pendulum as a function of the angular frequency of the driver pendulum }
+%     \label{tab:processedData}
+%     \begin{tblr}{
+%         width = \linewidth,
+%         colspec = {Q[200]Q[250]Q[250]Q[242]},
+%         cells = {c},
+%         hlines,
+%         vlines,
+%         }
+%         {Angular
+%         frequency of                                                            \\driver pendulum /$\unit{rad.s^{-1}}$} & {Forced pendulum's maximum horizontal displacement\\from equilibrium /$\unit{cm}$} & {Forced pendulum's maximum vertical displacement\\from equilibrium /$\unit{cm}$} & Forced pendulum's maximum amplitude /$\unit{rad}$ \\
+%         $5.12 \pm 0.05$ & $4.27 \pm 0.09$ & $1.04 \pm 0.02$ & $0.168 \pm 0.006$ \\
+%         $5.27 \pm 0.05$ & $5.5 \pm 0.1$   & $0.89 \pm 0.02$ & $0.213 \pm 0.008$ \\
+%         $5.54 \pm 0.05$ & $7.6 \pm 0.2$   & $1.04 \pm 0.02$ & $0.30 \pm 0.01$   \\
+%         \vdots          & \vdots          & \vdots          & \vdots            \\
+%         $6.80 \pm 0.06$ & $24.1 \pm 0.4$  & $8.1 \pm 0.1$   & $1.02 \pm 0.04$   \\
+%         $9.24 \pm 0.08$ & $7.5 \pm 0.1$   & $1.83 \pm 0.03$ & $0.29 \pm 0.01$
+%     \end{tblr}
+% \end{table}
+
 \begin{table}[H]
+    \fontsize{9pt}{9pt}\selectfont
     \centering
     \caption{Maximum horizontal and vertical displacement from equilibrium of forced pendulum and maximum amplitude of forced pendulum as a function of the angular frequency of the driver pendulum }
     \label{tab:processedData}
@@ -730,7 +835,29 @@ square of the angular frequency of the driver pendulum.
 Note that Equation \ref*{eq:partialUnc} was used to
 propagate the uncertainties of the values in the table.
 
+% \begin{table}[H]
+%     \centering
+%     \caption{Reciprocal of the forced pendulum's maximum amplitude squared as a function of the square of the angular frequency of the driver pendulum}
+%     \label{tab:analysisData}
+%     \begin{tblr}{
+%         width = \linewidth,
+%         colspec = {Q[490]Q[452]},
+%         cells = {c},
+%         hlines,
+%         vlines,
+%         }
+%         {Square of angular frequency of    \\driver pendulum /$\unit{rad^2.s^{-2}}$} & {Reciprocal of the forced pendulum's maximum amplitude squared /$\unit{rad^{-2}}$} \\
+%         $26.24 \pm 0.09$ & $35 \pm 3$      \\
+%         $27.8 \pm 0.1$   & $22 \pm 2$      \\
+%         $30.7 \pm 0.1$   & $11 \pm 1$      \\
+%         \vdots           & \vdots          \\
+%         $46.2 \pm 0.1$   & $0.97 \pm 0.08$ \\
+%         $85.3 \pm 0.2$   & $11.5 \pm 0.8$
+%     \end{tblr}
+% \end{table}
+
 \begin{table}[H]
+    \fontsize{9pt}{9pt}\selectfont
     \centering
     \caption{Reciprocal of the forced pendulum's maximum amplitude squared as a function of the square of the angular frequency of the driver pendulum}
     \label{tab:analysisData}
@@ -760,30 +887,15 @@ propagate the uncertainties of the values in the table.
     \end{tblr}
 \end{table}
 
-\section{Analysis}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{defaultGraph.png}
-    \caption{Amplitude of forced pendulum /\unit{rad} as a function of angular frequency of driver pendulum /\unit{rad.s^{-1}} to confirm the hypothesis to the research question}
-    \label{fig:defaultGraph}
-\end{figure}
+\section{Analysis}
 
 As seen in Figure \ref*{fig:defaultGraph}, a portion of the hypothesis
 has been proven, where there is a maximum in the graph
 at when the driver pendulum's angular frequency resonates
 with the forced pendulum's angular frequency.
 
-Further analysis can be done given the graph in Figure \ref*{fig:fullGraphOfModified}.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{fullGraphOfModified.png}
-    \caption{Reciprocal of forced pendulum's maximum amplitude squared /\unit{rad^{-2}} as a function of square of angular frequency of driver pendulum /\unit{rad^2.s^{-2}} to indicate error in data}
-    \label{fig:fullGraphOfModified}
-\end{figure}
-
-Evidently, this trend does not fit the parabolic model discussed
+The trend in Figure \ref*{fig:fullGraphOfModified} does not fit the parabolic model discussed
 earlier. However, further inspection may suggest that
 the first portion follows a trend resembling one
 that is quadratic, with the final 5 data points
@@ -792,12 +904,28 @@ to not include the final 5 values, a
 graph is produced that better fits the parabolic model,
 as seen in Figure \ref*{fig:restrictedGraph}.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{restrictedGraph.png}
-    \caption{Reciprocal of forced pendulum's maximum amplitude squared /\unit{rad^{-2}} as a function of square of angular frequency of driver pendulum /\unit{rad^2.s^{-2}} to focus on the portion of the data that best follows the parabolic model}
-    \label{fig:restrictedGraph}
-\end{figure}
+\begin{paracol}{3}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{defaultGraph.png}
+        \caption{Amplitude of forced pendulum /\unit{rad} as a function of angular frequency of driver pendulum /\unit{rad.s^{-1}} to confirm the hypothesis to the research question}
+        \label{fig:defaultGraph}
+    \end{figure}
+    \switchcolumn
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{fullGraphOfModified.png}
+        \caption{Reciprocal of forced pendulum's maximum amplitude squared /\unit{rad^{-2}} as a function of square of angular frequency of driver pendulum /\unit{rad^2.s^{-2}} to indicate error in data}
+        \label{fig:fullGraphOfModified}
+    \end{figure}
+    \switchcolumn
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{restrictedGraph.png}
+        \caption{Reciprocal of forced pendulum's maximum amplitude squared /\unit{rad^{-2}} as a function of square of angular frequency of driver pendulum /\unit{rad^2.s^{-2}} to focus on the portion of the data that best follows the parabolic model}
+        \label{fig:restrictedGraph}
+    \end{figure}
+\end{paracol}
 
 The parameters of the best-fit parabola can be
 used in conjunction with Equation \ref*{eq:unlinearized}
@@ -868,7 +996,9 @@ made by anyone.
 The first source of error was the progressive decrease
 in master string's tension overtime. Because of the
 exaggerated amplitude of the forced pendulum
-due to the additional master string's oscillation,
+due to the additional master string's oscillation
+and magnified energy transfer between the driver
+and forced pendulum,
 then it is expected that data points surrounding
 the median of the angular frequencies of the driver
 pendulum will have an amplitude that is higher
@@ -911,7 +1041,16 @@ that the master string has increased durability
 to avoid failure.
 
 
-%TODO: extension of effect of changing position of pendulums along master string.
+\section{Extension}
+
+The master string was the medium that permitted the energy
+transfer between the driver pendulum and the forced pendulum.
+In the sources of error, it became evident how loosening the
+string resulted in greater energy transfer. Thus, an area
+of extension is to investigate how changing the position
+of the driver or forced pendulum along the
+master string influences the maximum amplitude of the
+forced pendulum.
 
 \bibliographystyle{apacite}
 \bibliography{IB_PHYSICS_IA.bib}
